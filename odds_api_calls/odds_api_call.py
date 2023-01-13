@@ -20,17 +20,21 @@ away_teams = []
 book_maker_keys = []
 book_maker_titles = []
 last_updates = []
+betting_keys = []
+h2h_outcomes = []
+spread_outcomes = []
 
 book_maker_data = data[0]['bookmakers']
-print(book_maker_data[0])
-print(book_maker_data[0]['key'])
+odds_data = book_maker_data[0]['markets']
+print(odds_data[1])
+print(len(odds_data))
 
 for num in num_games:
 
 	'''PULL THE START TIMES AND HOME AND AWAY TEAMS FOR EACH GAME'''
-	start_times.append(data[num]['commence_time'])
-	home_teams.append(data[num]['home_team'])
-	away_teams.append(data[num]['away_team'])
+	start_time = data[num]['commence_time']
+	home_team = data[num]['home_team']
+	away_team = data[num]['away_team']
 
 	'''CREATE ANOTHER LOOP THAT PULLS ALL OF THE BOOKMAKER DATA FROM THE JSONS'''
 	num_book_makers = []
@@ -38,14 +42,29 @@ for num in num_games:
 	book_maker_data = data[num]['bookmakers']
 
 	for num1 in num_book_makers:
+		
+		start_times.append(start_time)
+		home_teams.append(home_team)
+		away_teams.append(away_team)
 		book_maker_keys.append(book_maker_data[num1]['key'])
 		book_maker_titles.append(book_maker_data[num1]['title'])
 		last_updates.append(book_maker_data[num1]['last_update'])
+		odds = book_maker_data[0]['markets']
 
-print(start_times)
-print(home_teams)
-print(away_teams)
-print(book_maker_keys)
-print(book_maker_titles)
-print(last_updates)
-	
+		for num2 in num_betkeys
+		betting_keys.append(odds[0]['key'])
+		betting_keys.append(odds[1]['key'])
+		h2h_outcomes.append(odds[0]['outcomes'])
+		spread_outcomes.append(odds[1]['outcomes'])
+
+
+
+print(len(start_times))
+print(len(home_teams))
+print(len(away_teams))
+print(len(book_maker_keys))
+print(len(book_maker_titles))
+print(len(last_updates))
+print(len(betting_keys))
+print(len(h2h_outcomes))
+print(len(spread_outcomes))
